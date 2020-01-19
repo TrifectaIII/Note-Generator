@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Note Generator</title>
+
+    <!-- Favicon from favicon.io -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Skeleton over CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/getskeleton@2.0.4-2/lib/css/skeleton.css">
+
+    <!-- load main CSS files -->
+    <link href="site.css" rel="stylesheet" type="text/css" />
+    <link href="main.css" rel="stylesheet" type="text/css" />
+
+
+    <!-- cookie.js-florian -->
+    <script src="https://cdn.jsdelivr.net/npm/cookie_js@1.3.0/dist/cookie.umd.min.js"></script>
+
+    <!-- handlebars.js -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.3.3/dist/handlebars.min.js"></script>
+</head>
+
+<body>
+    <div class='container'>
+
+        <!-- header for credits -->
+        <div class='headbar row'>
+            <p>Created by
+                <!-- will link to ghp homepage when deployed -->
+                <a href='../'>Dakota Madden-Fong</a>
+            </p>
+            <p>
+                <button class='mode-toggle'></button>
+            </p>
+        </div>
+
+        <!-- main contents of page -->
+        <div class='main-section row'>
+            <h2 class='main-header dm-white'>Note Generator</h2>
+            <hr>
+
+            <!-- template for topic -->
+            <script class="topic_template" type="text/template">
+                <div class='four columns topic_col'>
+                    <h6>{{@key}}</h6>
+                    {{#each}}
+                    <input type="checkbox" value="{{this}}"> {{this}}<br>
+                    {{/each}}
+                </div>
+            </script>
+
+            <!-- input section -->
+            <div class='input_section row'>
+                <button class='reset_button'>RESET</button>
+                <br><br>
+                <h4 class='dm-white'>Date</h4>
+                <input type='date' class='dateInput'></input>
+                <br><br>
+                <h4 class='dm-white'>Text</h4 class='dm-white'>
+                <textarea class='textEntry'></textarea>
+                <br><br>
+                <h4 class='dm-white'>Topics</h4>
+                <div class = 'row'>
+                </div>
+            </div>
+
+            <!-- template for output -->
+            <script class="output_template" type="text/template">
+            </script>
+
+            <!-- div will contain output -->
+            <div class='output_section row'>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- load JS files -->
+    <!-- topics file -->
+    <script src="topics.js"></script>
+    <!-- main js script -->
+    <script src="main.js"></script>
+    <!-- dark mode js script from main page -->
+    <script src="dark.js"></script>
+</body>
+
+</html>

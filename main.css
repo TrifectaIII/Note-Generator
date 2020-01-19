@@ -1,0 +1,33 @@
+.main-header{
+    font-weight: bold;
+}
+
+.input_label {
+    font-size:large;
+}
+
+.input {
+    font-size: x-large;
+    max-width: 100%;
+    text-align: center;
+}
+
+.output_section > p {
+    font-size:x-large;
+    margin-top:25px;
+}
+
+.dateInput {
+    font-size:large;
+    text-align: center;
+}
+
+.textEntry {
+    width:75%;
+    max-width:100%;
+    font-size: large;
+}
+
+.topic-col {
+    background-color:purple;
+}

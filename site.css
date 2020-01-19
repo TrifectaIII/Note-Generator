@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
+
+*, *::after, *::before {
+    box-sizing:border-box;
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+body {
+    text-align: center;
+    max-width: 100%;
+    background-color:white;
+}
+
+.main-section {
+    padding-top:10rem;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.headbar {
+    padding:0px;
+    width: 100%;
+    text-align: center;
+}
+
+.dark-mode {
+    background-color:rgb(30, 30, 30);
+    color:yellow;
+}
+
+button, 
+input,
+textarea {
+    color:black!important;
+    background-color: white;
+    border-color:black!important;
+    font-family: 'Lexend Deca', sans-serif;
+    border-width: 2px!important;
+}
+
+.dark-mode button,
+.dark-mode input,
+.dark-mode textarea {
+    color: yellow!important;
+    background-color: rgb(30, 30, 30);
+    border-color:yellow!important;
+}
+
+.mode-toggle::after {
+    content:'Dark Mode';
+}
+
+.dark-mode .mode-toggle::after {
+    content:'Light Mode'
+}
+
+hr {
+    border-width:1px;
+    border-style:solid;
+    border-color:black;
+}
+
+.dark-mode hr {
+    border-color:red;
+}
+
+.dark-mode .dm-white {
+    color:white;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+img {
+    border: 2px solid rgb(150, 150, 150);
+}
+
+.dark-mode img {
+    border-color:yellow;
+}
