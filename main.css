@@ -28,6 +28,10 @@
     font-size: large;
 }
 
-.topic-col {
-    background-color:purple;
+.topic_col {
+    text-align: left;
+}
+
+.topic_col h5 {
+    text-align: center;
 }

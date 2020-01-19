@@ -50,8 +50,8 @@
             <!-- template for topic -->
             <script class="topic_template" type="text/template">
                 <div class='four columns topic_col'>
-                    <h6>{{@key}}</h6>
-                    {{#each}}
+                    <h5>{{category}}</h5>
+                    {{#each bullets}}
                     <input type="checkbox" value="{{this}}"> {{this}}<br>
                     {{/each}}
                 </div>
@@ -61,15 +61,21 @@
             <div class='input_section row'>
                 <button class='reset_button'>RESET</button>
                 <br><br>
+
+                <!-- Date Entry (defaults to current date) -->
                 <h4 class='dm-white'>Date</h4>
                 <input type='date' class='dateInput'></input>
                 <br><br>
+
+                <!-- Custom text entry -->
                 <h4 class='dm-white'>Text</h4 class='dm-white'>
                 <textarea class='textEntry'></textarea>
                 <br><br>
+
+                <!-- Topics selecting -->
                 <h4 class='dm-white'>Topics</h4>
-                <div class = 'row'>
-                </div>
+                <!-- div to hold topic selection columns -->
+                <div class = 'topic_section'></div>
             </div>
 
             <!-- template for output -->
