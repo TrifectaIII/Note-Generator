@@ -52,7 +52,9 @@
                 <div class='four columns topic_col'>
                     <h5>{{category}}</h5>
                     {{#each bullets}}
-                    <input type="checkbox" value="{{this}}"> {{this}}<br>
+                    <label>
+                        <input class="topicCheck" type="checkbox" value="{{this}}"> {{this}}
+                    </label>
                     {{/each}}
                 </div>
             </script>

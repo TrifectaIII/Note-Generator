@@ -6,6 +6,11 @@ var topics = {
         "Strings",
         "Integers",
     ],
+    "Math":[
+        "Modulo",
+        "Floor/Ceiling",
+        "Trigonometry",
+    ],
     "Lists/Arrays":[
         "Indexing",
         "For Loops",
