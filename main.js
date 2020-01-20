@@ -1,5 +1,6 @@
-// default date is today
-document.querySelector('.dateInput').valueAsDate = new Date();
+// reference from HTML
+
+var dateInput = document.querySelector('.dateInput');
 
 
 // TOPIC COLUMNS
@@ -11,8 +12,10 @@ var topics_section = document.querySelector('.topic_section');
 //init parser for the topics template
 var topic_parser = Handlebars.compile(document.querySelector('.topic_template').innerHTML);
 
+//track position in rows of 3
 var row_tracker = 1;
 
+//eventual topic html contents
 var topics_output = '';
 
 for (let category in topics) {
@@ -35,7 +38,20 @@ if (row_tracker != 1) {
     topics_output += '</div>';
 }
 
+//place contents into page
 topics_section.innerHTML = topics_output;
+
+//build object containing the check marks
+var topicChecks = {};
+
+for (let category in topics) {
+    topicChecks[category] = [];
+    for (let i=0; i < topics[category].length; i++) {
+        topicChecks[category].push(document.querySelector('.'+category+'-'+topics[category][i]))
+    };
+};
+
+console.log(topicChecks)
 
 // OUTPUT
 ////////////////////////////////////////
@@ -58,6 +74,17 @@ setInterval(function () {
 
 // MISC 
 ////////////////////////////////////////
+
+// default date is today
+document.querySelector('.dateInput').valueAsDate = new Date();
+
+// reset button
+document.querySelector('.reset_button').addEventListener('click', function () {
+    // reset to default date (today)
+    document.querySelector('.dateInput').valueAsDate = new Date();
+
+
+})
 
 //remove links from tab order
 document.querySelectorAll('a').forEach(function (link) {

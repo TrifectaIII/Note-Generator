@@ -53,7 +53,7 @@
                     <h5>{{category}}</h5>
                     {{#each bullets}}
                     <label>
-                        <input class="topicCheck" type="checkbox" value="{{this}}"> {{this}}
+                        <input class="topicCheck {{../category}}-{{this}}" type="checkbox" value="{{this}}"> {{this}}
                     </label>
                     {{/each}}
                 </div>

@@ -1,19 +1,19 @@
 var topics = {
     "Fundamentals":[
         "Variables",
-        "print()",
-        "input()",
+        "print",
+        "input",
         "Strings",
         "Integers",
     ],
     "Math":[
         "Modulo",
-        "Floor/Ceiling",
+        "Floor-Ceiling",
         "Trigonometry",
     ],
-    "Lists/Arrays":[
+    "Lists-Arrays":[
         "Indexing",
-        "For Loops",
+        "For-Loops",
         "Appending",
     ],
 }
