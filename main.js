@@ -1,6 +1,7 @@
 // reference from HTML
-
 var dateInput = document.querySelector('.dateInput');
+var textEntry = document.querySelector('.textEntry');
+var generate_button = document.querySelector('.generate_button');
 
 
 // TOPIC COLUMNS
@@ -51,8 +52,6 @@ for (let category in topics) {
     };
 };
 
-console.log(topicChecks)
-
 // OUTPUT
 ////////////////////////////////////////
 
@@ -66,10 +65,9 @@ var output_parser = Handlebars.compile(document.querySelector('.output_template'
 function genOutput(div, parser, ability) {
 }
 
-//Update Output when inputs are valid
-setInterval(function () {
-    //only check when inputs change
-}, 250);
+generate_button.addEventListener('click', function () {
+    console.log('GENERATE')
+})
 
 
 // MISC 
@@ -83,7 +81,8 @@ document.querySelector('.reset_button').addEventListener('click', function () {
     // reset to default date (today)
     document.querySelector('.dateInput').valueAsDate = new Date();
 
-
+    //clear textEntry
+    textEntry.value = '';
 })
 
 //remove links from tab order
