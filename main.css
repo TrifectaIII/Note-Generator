@@ -22,7 +22,8 @@
     text-align: center;
 }
 
-.textEntry {
+.textEntry,
+.textOutput {
     width:75%;
     max-width:100%;
     font-size: large;

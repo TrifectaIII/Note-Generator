@@ -2,6 +2,9 @@
 var dateInput = document.querySelector('.dateInput');
 var textEntry = document.querySelector('.textEntry');
 var generate_button = document.querySelector('.generate_button');
+var textOutput = document.querySelector('.textOutput');
+var copy_button = document.querySelector('.copy_button');
+
 
 
 // TOPIC COLUMNS
@@ -55,18 +58,38 @@ for (let category in topics) {
 // OUTPUT
 ////////////////////////////////////////
 
-//pull output div from document
-var output = document.querySelector('.output_section');
-
 //init parser for the output template
-var output_parser = Handlebars.compile(document.querySelector('.output_template').innerHTML);
+var output_template = `{{date}}:
+
+{{text}}
+
+Topics Covered:
+{{#each categories}}
+- {{@key}}
+    {{#each this}}
+    - {{this}}
+    {{/each}}
+{{/each}}`
+
+var output_parser = Handlebars.compile(output_template);
 
 // function to generate and display output
-function genOutput(div, parser, ability) {
+function genOutput(parser) {
+    var info = {
+        date:dateInput.value,
+        text:textEntry.value,
+        categories:{
+            Cat1:['Thing1','Thing2'],
+            Cat2:['Thing3']
+        }
+    };
+    return parser(info);
 }
 
 generate_button.addEventListener('click', function () {
     console.log('GENERATE')
+    var contents = genOutput(output_parser);
+    textOutput.value = contents;
 })
 
 
@@ -74,15 +97,18 @@ generate_button.addEventListener('click', function () {
 ////////////////////////////////////////
 
 // default date is today
-document.querySelector('.dateInput').valueAsDate = new Date();
+dateInput.valueAsDate = new Date();
 
 // reset button
 document.querySelector('.reset_button').addEventListener('click', function () {
     // reset to default date (today)
-    document.querySelector('.dateInput').valueAsDate = new Date();
+    dateInput.valueAsDate = new Date();
 
-    //clear textEntry
+    // clear textEntry
     textEntry.value = '';
+
+    // uncheck all boxes
+
 })
 
 //remove links from tab order
