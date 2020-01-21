@@ -5,8 +5,6 @@ var generate_button = document.querySelector('.generate_button');
 var textOutput = document.querySelector('.textOutput');
 var copy_button = document.querySelector('.copy_button');
 
-
-
 // TOPIC COLUMNS
 ////////////////////////////////////////
 
@@ -49,11 +47,13 @@ topics_section.innerHTML = topics_output;
 var topicChecks = {};
 
 for (let category in topics) {
-    topicChecks[category] = [];
+    topicChecks[category] = {};
     for (let i=0; i < topics[category].length; i++) {
-        topicChecks[category].push(document.querySelector('.'+category+'-'+topics[category][i]))
+        topicChecks[category][topics[category][i]] = document.querySelector('.'+category+'-'+topics[category][i]);
     };
 };
+
+console.log(topicChecks);
 
 // OUTPUT
 ////////////////////////////////////////
@@ -108,7 +108,11 @@ document.querySelector('.reset_button').addEventListener('click', function () {
     textEntry.value = '';
 
     // uncheck all boxes
-
+    for (let category in topicChecks) {
+        for (let topic in topicChecks[category]) {
+            topicChecks[category][topic].checked = false;
+        }
+    }
 })
 
 //remove links from tab order
