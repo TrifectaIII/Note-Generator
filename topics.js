@@ -8,6 +8,10 @@ var topics = {
         "Strings",
         "Integers",
     ],
+    "Logic":[
+        "if-else",
+        "and-or",
+    ],
     "Math":[
         "Modulo",
         "Floor-Ceiling",
@@ -23,9 +27,9 @@ var topics = {
         "While-Loops",
         "Nested-Loops",
     ],
-    "Logic":[
-        "if-else",
-        "and-or",
+    "Functions":[
+        "Definition",
+        "Recursion",
     ],
     "Scratch":[
         "Movement",

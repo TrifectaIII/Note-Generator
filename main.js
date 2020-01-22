@@ -68,9 +68,9 @@ var output_template = `Date: {{date}}
 {{#if categories_exists}}
 Topics Covered:
 {{#each categories}}
-  > {{@key}}
+>  {{@key}}
   {{#each this}}
-    - {{this}}
+-    {{this}}
   {{/each}}
 {{/each}}
 {{/if}}`
