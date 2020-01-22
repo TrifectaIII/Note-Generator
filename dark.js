@@ -1,7 +1,7 @@
 cookie.defaults.path = '/';
 
 // get cookie, and set default behaivior
-var saved = cookie.get('dark-mode','on');
+var saved = cookie.get('dark-mode','off');
 
 var mode_toggle = document.querySelector('.mode-toggle');
 
