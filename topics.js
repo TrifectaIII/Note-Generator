@@ -1,3 +1,5 @@
+// ONLY ALPHABET AND DASHES
+// NO SPACES
 var topics = {
     "Fundamentals":[
         "Variables",
@@ -14,11 +16,23 @@ var topics = {
     ],
     "Lists-Arrays":[
         "Indexing",
-        "For-Loops",
         "Append",
+    ],
+    "Loops":[
+        "For-Loops",
+        "While-Loops",
+        "Nested-Loops",
+    ],
+    "Logic":[
+        "if-else",
+        "and-or",
     ],
     "Scratch":[
         "Movement",
-        ""
+        "Variables",
+        "Ask-Answer",
+        "Gravity",
+        "Messages",
+        "Clones",
     ],
 }

@@ -53,7 +53,7 @@ for (let category in topics) {
     };
 };
 
-console.log(topicChecks);
+// console.log(topicChecks);
 
 // OUTPUT
 ////////////////////////////////////////
@@ -68,10 +68,10 @@ var output_template = `Date: {{date}}
 {{#if categories_exists}}
 Topics Covered:
 {{#each categories}}
-        - {{@key}}
-                {{#each this}}
-                - {{this}}
-                {{/each}}
+  > {{@key}}
+  {{#each this}}
+    - {{this}}
+  {{/each}}
 {{/each}}
 {{/if}}`
 
@@ -106,7 +106,6 @@ function genOutput(parser) {
 }
 
 generate_button.addEventListener('click', function () {
-    console.log('GENERATE')
     var contents = genOutput(output_parser);
     textOutput.value = contents;
 })
@@ -117,7 +116,12 @@ generate_button.addEventListener('click', function () {
 
 // copy button
 copy_button.addEventListener('click', function () {
-    
+    textOutput.select();
+    document.execCommand("copy");
+    setTimeout(function () {
+        textOutput.selectionStart = 0;
+        textOutput.selectionEnd = 0;
+    },100)
 })
 
 // default date is today
