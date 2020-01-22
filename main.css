@@ -33,8 +33,10 @@
 .topic_col {
     text-align: left;
     border: 2px solid black;
-    padding:0px 20px;
     border-radius:5px;
+    padding:0px 20px;
+    margin-top:20px;
+    margin-bottom:20px;
 }
 
 .dark-mode .topic_col {
