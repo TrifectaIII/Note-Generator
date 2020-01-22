@@ -10,10 +10,15 @@ var topics = {
         "Modulo",
         "Floor-Ceiling",
         "Trigonometry",
+        "XY-Coordinates",
     ],
     "Lists-Arrays":[
         "Indexing",
         "For-Loops",
-        "Appending",
+        "Append",
+    ],
+    "Scratch":[
+        "Movement",
+        ""
     ],
 }

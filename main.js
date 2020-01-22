@@ -59,17 +59,21 @@ console.log(topicChecks);
 ////////////////////////////////////////
 
 //init parser for the output template
-var output_template = `{{date}}:
+var output_template = `Date: {{date}}
+{{#if text_exists}}
 
 {{text}}
+{{/if}}
 
+{{#if categories_exists}}
 Topics Covered:
 {{#each categories}}
-- {{@key}}
-    {{#each this}}
-    - {{this}}
-    {{/each}}
-{{/each}}`
+        - {{@key}}
+                {{#each this}}
+                - {{this}}
+                {{/each}}
+{{/each}}
+{{/if}}`
 
 var output_parser = Handlebars.compile(output_template);
 
@@ -78,11 +82,26 @@ function genOutput(parser) {
     var info = {
         date:dateInput.value,
         text:textEntry.value,
-        categories:{
-            Cat1:['Thing1','Thing2'],
-            Cat2:['Thing3']
-        }
+        text_exists:textEntry.value.trim() != '',
+        categories:{},
+        categories_exists:false,
     };
+
+    //loop through all checkboxes
+    for (let category in topicChecks) {
+        var added = false
+        for (let topic in topicChecks[category]) {
+            if (topicChecks[category][topic].checked) {
+                if (!added) {
+                    info.categories[category] = []
+                    added = true
+                    info.categories_exists = true
+                }
+                info.categories[category].push(topic)
+            }
+        }
+    }
+
     return parser(info);
 }
 
@@ -95,6 +114,11 @@ generate_button.addEventListener('click', function () {
 
 // MISC 
 ////////////////////////////////////////
+
+// copy button
+copy_button.addEventListener('click', function () {
+    
+})
 
 // default date is today
 dateInput.valueAsDate = new Date();
