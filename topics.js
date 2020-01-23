@@ -7,6 +7,7 @@ var topics = {
         "input",
         "Strings",
         "Integers",
+        "Booleans",
     ],
     "Logic":[
         "if-else",

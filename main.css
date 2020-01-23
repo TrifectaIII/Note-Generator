@@ -50,3 +50,9 @@
 .topic_col label {
     font-weight: normal;
 }
+
+@media (min-width: 550px) {
+    .spacer::after {
+        content:"\00a0";
+    }
+}

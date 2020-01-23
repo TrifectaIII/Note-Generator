@@ -29,26 +29,32 @@
 </head>
 
 <body>
+    <!-- container holds all contents of page for skeleton -->
     <div class='container'>
 
-        <!-- header for credits -->
+        <!-- header -->
         <div class='headbar row'>
             <p>Created by
                 <!-- will link to ghp homepage when deployed -->
-                <a href='../'>Dakota Madden-Fong</a>
+                <a href='https://trifectaiii.github.io/'>Dakota Madden-Fong</a>
             </p>
             <p>
+                <!-- dark mode toggle button -->
                 <button class='mode-toggle'></button>
             </p>
         </div>
 
         <!-- main contents of page -->
         <div class='main-section row'>
+
             <h2 class='main-header dm-white'>Note Generator</h2>
             <hr>
 
             <!-- template for topic -->
             <script class="topic_template" type="text/template">
+                {{#if offset}}
+                <div class='four columns spacer'></div>
+                {{/if}}
                 <div class='four columns topic_col'>
                     <h5>{{category}}</h5>
                     {{#each bullets}}

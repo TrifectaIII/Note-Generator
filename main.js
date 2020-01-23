@@ -1,9 +1,9 @@
 // reference from HTML
-var dateInput = document.querySelector('.dateInput');
-var textEntry = document.querySelector('.textEntry');
-var generate_button = document.querySelector('.generate_button');
-var textOutput = document.querySelector('.textOutput');
-var copy_button = document.querySelector('.copy_button');
+var dateInput = document.querySelector('.dateInput');// input for date of class
+var textEntry = document.querySelector('.textEntry');// textarea for custom text in note
+var generate_button = document.querySelector('.generate_button'); // button to generate the note
+var textOutput = document.querySelector('.textOutput'); // textarea to hold generated note
+var copy_button = document.querySelector('.copy_button'); //button to cop note to clipboard
 
 // TOPIC COLUMNS
 ////////////////////////////////////////
@@ -17,31 +17,57 @@ var topic_parser = Handlebars.compile(document.querySelector('.topic_template').
 //track position in rows of 3
 var row_tracker = 1;
 
-//eventual topic html contents
-var topics_output = '';
+//size of topics
+var topicLength = Object.keys(topics).length;
 
+// track total columns so far
+var topicCols = 0
+
+//hold topic html contents
+var topics_HTML = '';
+
+//loop though all categories in topics obj
 for (let category in topics) {
+
+    //add to total count
+    topicCols += 1
+
+    //if the beginning of a row of three
     if (row_tracker == 1) {
-        topics_output += '<div class="row">';
+        topics_HTML += '<div class="row">';
     }
-    topics_output += topic_parser({
+
+    // object to send to parser
+    var topicObj = {
         category:category,
-        bullets:topics[category]
-    });
+        bullets:topics[category],
+        offset:false,
+    }
+
+    //if last column and not perfect multiple of 3, offset it
+    if (topicCols == topicLength && topicLength%3 != 0) {
+        topicObj.offset = true;
+    }
+
+    //parse object and add to html
+    topics_HTML += topic_parser(topicObj);
+
+    //finish a row if last in three
     if (row_tracker == 3) {
-        topics_output += '</div>';
+        topics_HTML += '</div>';
         row_tracker = 1;
     } else {
         row_tracker += 1;
     }
 }
 
+// if row isnt already finished, finish it
 if (row_tracker != 1) {
-    topics_output += '</div>';
+    topics_HTML += '</div>';
 }
 
-//place contents into page
-topics_section.innerHTML = topics_output;
+//place html contents into page
+topics_section.innerHTML = topics_HTML;
 
 //build object containing the check marks
 var topicChecks = {};
