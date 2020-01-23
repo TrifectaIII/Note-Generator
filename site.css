@@ -36,6 +36,7 @@ textarea {
     border-color:black!important;
     font-family: 'Lexend Deca', sans-serif;
     border-width: 2px!important;
+    border-radius:5px;
 }
 
 .dark-mode button,
