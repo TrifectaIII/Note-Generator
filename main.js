@@ -88,22 +88,28 @@ for (let category in topics) {
 var topic_rows = document.querySelectorAll('.topic_row');
 
 //forces all rows to equal internal height
-topic_rows.forEach(function (row) {
+function heightMatch () {
+    topic_rows.forEach(function (row) {
 
-    //get all columns in the row
-    var cols = row.querySelectorAll('.topic_col');
+        //get all columns in the row
+        var cols = row.querySelectorAll('.topic_col');
+    
+        //max height of this row
+        var max_height = 0;
+        cols.forEach(function (col) {
+            max_height = Math.max(max_height, col.offsetHeight)
+        })
+    
+        //match each column to this row
+        cols.forEach(function (col) {
+            col.style.height = max_height.toString(10)+'px';
+        })
+    });
+}
 
-    //max height of this row
-    var max_height = 0;
-    cols.forEach(function (col) {
-        max_height = Math.max(max_height, col.clientHeight)
-    })
-
-    //match each column to this row
-    cols.forEach(function (col) {
-        col.style.height = max_height.toString(10)+'px';
-    })
-});
+//match immediately, then whenever window is resized
+heightMatch();
+window.addEventListener('resize', heightMatch);
 
 // OUTPUT
 ////////////////////////////////////////
