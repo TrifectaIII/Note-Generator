@@ -123,7 +123,7 @@ window.addEventListener('resize', function () {
 // OUTPUT
 ////////////////////////////////////////
 
-//init parser for the output template
+//init parser for the note template
 var output_template = `{{#if date_exists}}
 Date: {{{date}}}
 {{/if}}
@@ -140,11 +140,11 @@ Topics Covered:
 --- {{{this}}}
   {{/each}}
 {{/each}}
-{{/if}}`
+{{/if}}`;
 
 var output_parser = Handlebars.compile(output_template);
 
-// function to generate and display output
+// function to generate note
 function genOutput(parser) {
     var info = {
         date:dateInput.value,
@@ -161,22 +161,23 @@ function genOutput(parser) {
         for (let topic in topicChecks[category]) {
             if (topicChecks[category][topic].checked) {
                 if (!added) {
-                    info.categories[category] = []
-                    added = true
-                    info.categories_exists = true
+                    info.categories[category] = [];
+                    added = true;
+                    info.categories_exists = true;
                 }
-                info.categories[category].push(topic)
+                info.categories[category].push(topic);
             }
         }
     }
 
-    return parser(info);
+    return parser(info).trim();
 }
 
+//button to generate the note
 generate_button.addEventListener('click', function () {
     var contents = genOutput(output_parser);
     textOutput.value = contents;
-})
+});
 
 
 // MISC 

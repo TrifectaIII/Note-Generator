@@ -58,5 +58,7 @@ var topics = {
         "Gravity",
         "Messages",
         "Clones",
+        "Forever-Loops",
+        "Repeat-Until-Loops",
     ],
 }
