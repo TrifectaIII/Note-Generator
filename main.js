@@ -168,9 +168,11 @@ generate_button.addEventListener('click', function () {
 copy_button.addEventListener('click', function () {
     textOutput.select();
     document.execCommand("copy");
+    //after a bit, defocus the textarea
     setTimeout(function () {
         textOutput.selectionStart = 0;
         textOutput.selectionEnd = 0;
+        textOutput.blur();
     },100)
 })
 
@@ -180,7 +182,7 @@ copy_button.addEventListener('click', function () {
 // reset button
 document.querySelector('.reset_button').addEventListener('click', function () {
     // reset to default date (nothing)
-    // dateInput.value = '';
+    dateInput.value = '';
 
     // clear textEntry
     textEntry.value = '';
