@@ -49,6 +49,7 @@ var topics = {
         "DOM-Element-Selection",
         "Event-Listeners",
         "Timing-Functions",
+        "forEach",
     ],
     "Scratch":[
         "Movement",

@@ -51,8 +51,16 @@
     font-weight: normal;
 }
 
+/* spacer for non-full final row in desktop view*/
 @media (min-width: 550px) {
     .spacer::after {
         content:"\00a0";
+    }
+}
+
+/* no height equalization in mobile view */
+@media (max-width: 549px) {
+    .topic_col {
+        height:auto!important;
     }
 }
