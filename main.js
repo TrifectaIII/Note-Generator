@@ -85,18 +85,18 @@ for (let category in topics) {
 ////////////////////////////////////////
 
 //init parser for the output template
-var output_template = `Date: {{date}}
+var output_template = `Date: {{{date}}}
 {{#if text_exists}}
 
-{{text}}
+{{{text}}}
 {{/if}}
 
 {{#if categories_exists}}
 Topics Covered:
 {{#each categories}}
-\t> {{@key}}
+> {{{@key}}}
   {{#each this}}
-\t\t- {{this}}
+--- {{{this}}}
   {{/each}}
 {{/each}}
 {{/if}}`
