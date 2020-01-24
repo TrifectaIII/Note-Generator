@@ -89,6 +89,13 @@ var topic_rows = document.querySelectorAll('.topic_row');
 
 //forces all rows to equal internal height
 function heightMatch () {
+
+    //let columns set themselves to start
+    var cols = document.querySelectorAll('.topic_col');
+    cols.forEach(function (col) {
+        col.style.height = 'auto';
+    });
+
     topic_rows.forEach(function (row) {
 
         //get all columns in the row
@@ -97,19 +104,21 @@ function heightMatch () {
         //max height of this row
         var max_height = 0;
         cols.forEach(function (col) {
-            max_height = Math.max(max_height, col.offsetHeight)
-        })
+            max_height = Math.max(max_height, col.offsetHeight);
+        });
     
         //match each column to this row
         cols.forEach(function (col) {
             col.style.height = max_height.toString(10)+'px';
-        })
+        });
     });
 }
 
 //match immediately, then whenever window is resized
 heightMatch();
-window.addEventListener('resize', heightMatch);
+window.addEventListener('resize', function () {
+    heightMatch();
+});
 
 // OUTPUT
 ////////////////////////////////////////
