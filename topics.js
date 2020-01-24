@@ -32,6 +32,24 @@ var topics = {
         "Definition",
         "Recursion",
     ],
+    "HTML":[
+        "Element-Creation",
+        "Images",
+        "Links",
+        "Element-IDs",
+    ],
+    "CSS":[
+        "Selection-by-Tag",
+        "Selection-by-ID-Class",
+        "Changing-colors",
+        "Adding-borders",
+        "Changing-fonts"
+    ],
+    "Javascript":[
+        "DOM-Element-Selection",
+        "Event-Listeners",
+        "Timing-Functions",
+    ],
     "Scratch":[
         "Movement",
         "Variables",
