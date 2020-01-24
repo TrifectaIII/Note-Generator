@@ -115,7 +115,9 @@ window.addEventListener('resize', heightMatch);
 ////////////////////////////////////////
 
 //init parser for the output template
-var output_template = `Date: {{{date}}}
+var output_template = `{{#if date_exists}}
+Date: {{{date}}}
+{{/if}}
 {{#if text_exists}}
 
 {{{text}}}
@@ -137,6 +139,7 @@ var output_parser = Handlebars.compile(output_template);
 function genOutput(parser) {
     var info = {
         date:dateInput.value,
+        date_exists:dateInput.value != '',
         text:textEntry.value,
         text_exists:textEntry.value.trim() != '',
         categories:{},
