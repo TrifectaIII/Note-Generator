@@ -150,13 +150,13 @@ copy_button.addEventListener('click', function () {
     },100)
 })
 
-// default date is today
+// // default date is today
 // dateInput.valueAsDate = new Date();
 
 // reset button
 document.querySelector('.reset_button').addEventListener('click', function () {
-    // reset to default date (today)
-    // dateInput.valueAsDate = new Date();
+    // reset to default date (nothing)
+    // dateInput.value = '';
 
     // clear textEntry
     textEntry.value = '';
