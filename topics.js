@@ -17,7 +17,7 @@ var topics = {
     ],
     "Math":[
         "Modulo Operation",
-        "Floor/Ceiling",
+        "Floor / Ceiling",
         "Trigonometry",
         "XY Coordinates",
     ],
@@ -35,7 +35,7 @@ var topics = {
         "Nested Loops",
     ],
     "Functions":[
-        "Parameters/Arguments",
+        "Parameters / Arguments",
         "Definition",
         "Recursion",
     ],
@@ -49,14 +49,14 @@ var topics = {
     ],
     "CSS":[
         "Selection by Tag Name",
-        "Selection by ID/Class",
+        "Selection by ID / Class",
         "Color changes",
         "Adding borders",
         "Changing fonts",
         "Flexbox layouts",
     ],
     "Javascript":[
-        "Referencing elements from DOM",
+        "DOM Referencing",
         "Event Listeners",
         "Timing Functions",
         "forEach",
