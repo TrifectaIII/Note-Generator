@@ -1,5 +1,5 @@
-//Keys are Categories, Each with a list as value
-//Value lists contain individual bullet point topics
+//Keys are categories, each with an array as value
+//Value arrays contain individual bullet point topics
 var topics = {
     "Fundamentals":[
         "Variables",
