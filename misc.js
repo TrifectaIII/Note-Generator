@@ -1,7 +1,7 @@
 // MISC 
 ////////////////////////////////////////
 
-// copy button
+// copy button copies note from textarea
 copy_button.addEventListener('click', function () {
     textOutput.select();
     document.execCommand("copy");
@@ -13,10 +13,14 @@ copy_button.addEventListener('click', function () {
     },100)
 })
 
+
+
 //today button sets date to current
 today_button.addEventListener('click', function () {
     dateInput.value = moment().format('YYYY-MM-DD');
 })
+
+
 
 // reset button resets all inputs
 document.querySelector('.reset_button').addEventListener('click', function () {
@@ -34,10 +38,14 @@ document.querySelector('.reset_button').addEventListener('click', function () {
     }
 })
 
+
+
 //remove links from tab order
 document.querySelectorAll('a').forEach(function (link) {
     link.tabIndex = -1;
 });
+
+
 
 //Match topic_col heights per row
 
@@ -73,3 +81,16 @@ function heightMatch () {
 //match immediately, then whenever window is resized
 heightMatch();
 window.addEventListener('resize', heightMatch);
+
+
+// Get saved contents of textEntry, dateInput, and textOutput from cookies
+textEntry.value = cookie.get('textEntry','');
+dateInput.value = cookie.get('dateInput','');
+textOutput.value = cookie.get('textOutput','');
+
+// Set contents to cookies by Interval
+setInterval(function () {
+    cookie.set('textEntry', textEntry.value);
+    cookie.set('dateInput', dateInput.value);
+    cookie.set('textOutput', textOutput.value);
+}, 100)
