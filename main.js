@@ -194,7 +194,7 @@ copy_button.addEventListener('click', function () {
 
 //today button sets date to current
 today_button.addEventListener('click', function () {
-    dateInput.valueAsDate = new Date();
+    dateInput.value = moment().format('YYYY-MM-DD');
 })
 
 // reset button resets all inputs
