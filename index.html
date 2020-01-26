@@ -52,14 +52,17 @@
 
             <!-- template for topic -->
             <script class="topic_template" type="text/template">
-                {{#if offset}}
+                {{#if offset4}}
                 <div class='four columns spacer'></div>
                 {{/if}}
-                <div class='four columns topic_col'>
+                {{#if offset2}}
+                <div class='two columns spacer'></div>
+                {{/if}}
+                <div class='four columns topic_col {{categoryCode}}'>
                     <h5>{{category}}</h5>
                     {{#each bullets}}
                     <label>
-                        <input class="topicCheck {{../category}}-{{this}}" type="checkbox" value="{{this}}"> {{this}}
+                        <input class="topicCheck {{@key}}" type="checkbox" value="{{@key}}"> {{name}}
                     </label>
                     {{/each}}
                 </div>
@@ -74,6 +77,8 @@
                 <!-- Date Entry (defaults to current date) -->
                 <h4 class='dm-white'>Date</h4>
                 <input type='date' class='dateInput'></input>
+                <br>
+                <button class='today_button'>TODAY</button>
                 <br><br>
 
                 <!-- Custom text entry -->

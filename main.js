@@ -1,5 +1,6 @@
 // reference from HTML
 var dateInput = document.querySelector('.dateInput');// input for date of class
+var today_button = document.querySelector('.today_button');//button to set date to today
 var textEntry = document.querySelector('.textEntry');// textarea for custom text in note
 var generate_button = document.querySelector('.generate_button'); // button to generate the note
 var textOutput = document.querySelector('.textOutput'); // textarea to hold generated note
@@ -7,6 +8,32 @@ var copy_button = document.querySelector('.copy_button'); //button to cop note t
 
 // TOPIC COLUMNS
 ////////////////////////////////////////
+
+//extended object to hold all info re: topics
+var topicsExtended = {}
+
+//to generate unique identifiers
+var categoryCodeTracker = 0
+var topicCodeTracker = 0
+
+// build extended object with unique identifiers
+for (let category in topics) {
+    let categoryCode = 'cat' + categoryCodeTracker.toString(10)
+    topicsExtended[categoryCode] = {
+        name:category,
+        topics:{},
+    }
+    topics[category].forEach(function (topic) {
+        let topicCode = 'top' + topicCodeTracker.toString(10)
+        topicsExtended[categoryCode].topics[topicCode] = {
+            name:topic,
+        }
+        topicCodeTracker += 1
+    })
+    categoryCodeTracker += 1
+}
+
+// console.log(topicsExtended)
 
 //pull topics div from document
 var topics_section = document.querySelector('.topic_section');
@@ -27,7 +54,7 @@ var topicCols = 0
 var topics_HTML = '';
 
 //loop though all categories in topics obj
-for (let category in topics) {
+for (let categoryCode in topicsExtended) {
 
     //add to total count
     topicCols += 1
@@ -39,15 +66,13 @@ for (let category in topics) {
 
     // object to send to parser
     var topicObj = {
-        category:category,
-        bullets:topics[category],
-        offset:false,
-        
-    }
-
-    //if last column and not perfect multiple of 3, offset it
-    if (topicCols == topicLength && topicLength%3 != 0) {
-        topicObj.offset = true;
+        categoryCode:categoryCode,
+        category:topicsExtended[categoryCode].name,
+        bullets:topicsExtended[categoryCode].topics,
+        //if last column in its own row, put spacer to center it
+        offset4:topicCols == topicLength && topicLength%3 != 2,
+        //if last 2 columns in their own row, pur spacer to center both
+        offset2:topicCols == topicLength-1 && topicLength%3 != 1,
     }
 
     //parse object and add to html
@@ -70,55 +95,19 @@ if (row_tracker != 1) {
 //place html contents into page
 topics_section.innerHTML = topics_HTML;
 
-//build object containing the check marks
-var topicChecks = {};
 
-for (let category in topics) {
-    topicChecks[category] = {};
-    for (let i=0; i < topics[category].length; i++) {
-        topicChecks[category][topics[category][i]] = document.querySelector('.'+category+'-'+topics[category][i]);
-    };
-};
-
-// console.log(topicChecks);
-
-//Match Heights
-
-//get all rows from DOM
-var topic_rows = document.querySelectorAll('.topic_row');
-
-//forces all rows to equal internal height
-function heightMatch () {
-
-    //let columns set themselves to start
-    var cols = document.querySelectorAll('.topic_col');
-    cols.forEach(function (col) {
-        col.style.height = 'auto';
-    });
-
-    topic_rows.forEach(function (row) {
-
-        //get all columns in the row
-        var cols = row.querySelectorAll('.topic_col');
-    
-        //max height of this row
-        var max_height = 0;
-        cols.forEach(function (col) {
-            max_height = Math.max(max_height, col.offsetHeight);
-        });
-    
-        //match each column to this row
-        cols.forEach(function (col) {
-            col.style.height = max_height.toString(10)+'px';
-        });
-    });
+//grab generated elements from HTML and place in extended object
+for (let categoryCode in topicsExtended) {
+    //grab each column 
+    topicsExtended[categoryCode].column = document.querySelector(`.${categoryCode}`);
+    for (let topicCode in topicsExtended[categoryCode].topics) {
+        //grab each checkbox
+        topicsExtended[categoryCode].topics[topicCode].checkbox =
+        topicsExtended[categoryCode].column.querySelector(`.${topicCode}`);
+    }
 }
 
-//match immediately, then whenever window is resized
-heightMatch();
-window.addEventListener('resize', function () {
-    heightMatch();
-});
+// console.log(topicsExtended)
 
 // OUTPUT
 ////////////////////////////////////////
@@ -146,7 +135,7 @@ var output_parser = Handlebars.compile(output_template);
 
 // function to generate note
 function genOutput(parser) {
-    var info = {
+    var note_info = {
         date:dateInput.value,
         date_exists:dateInput.value != '',
         text:textEntry.value,
@@ -155,22 +144,30 @@ function genOutput(parser) {
         categories_exists:false,
     };
 
-    //loop through all checkboxes
-    for (let category in topicChecks) {
-        var added = false
-        for (let topic in topicChecks[category]) {
-            if (topicChecks[category][topic].checked) {
+    //go through all checkboxs to find checked ones
+
+    //loop through category columns first
+    for (let categoryCode in topicsExtended) {
+        var added = false;
+
+        //then loop though each topic in category
+        for (let topicCode in topicsExtended[categoryCode].topics) {
+
+            //if checkbox is checked
+            if (topicsExtended[categoryCode].topics[topicCode].checkbox.checked) {
+                //add category to note if first checkbox seen in category
                 if (!added) {
-                    info.categories[category] = [];
+                    note_info.categories[topicsExtended[categoryCode].name] = [];
                     added = true;
-                    info.categories_exists = true;
+                    //add categories section if first checkbox seen ever
+                    note_info.categories_exists = true;
                 }
-                info.categories[category].push(topic);
+                //add individual topic
+                note_info.categories[topicsExtended[categoryCode].name].push(topicsExtended[categoryCode].topics[topicCode].name);
             }
         }
     }
-
-    return parser(info).trim();
+    return parser(note_info).trim();
 }
 
 //button to generate the note
@@ -195,10 +192,12 @@ copy_button.addEventListener('click', function () {
     },100)
 })
 
-// // default date is today
-// dateInput.valueAsDate = new Date();
+//today button sets date to current
+today_button.addEventListener('click', function () {
+    dateInput.valueAsDate = new Date();
+})
 
-// reset button
+// reset button resets all inputs
 document.querySelector('.reset_button').addEventListener('click', function () {
     // reset to default date (nothing)
     dateInput.value = '';
@@ -218,3 +217,38 @@ document.querySelector('.reset_button').addEventListener('click', function () {
 document.querySelectorAll('a').forEach(function (link) {
     link.tabIndex = -1;
 });
+
+//Match topic_col heights per row
+
+//forces all rows to equal internal height
+function heightMatch () {
+
+    //get all rows from DOM
+    var topic_rows = document.querySelectorAll('.topic_row');
+
+    topic_rows.forEach(function (row) {
+
+        //get all columns in the row
+        var cols = row.querySelectorAll('.topic_col');
+
+        //let columns set themselves to start
+        cols.forEach(function (col) {
+            col.style.height = 'auto';
+        });
+    
+        //max height of this row
+        var max_height = 0;
+        cols.forEach(function (col) {
+            max_height = Math.max(max_height, col.offsetHeight);
+        });
+    
+        //match each column to this row
+        cols.forEach(function (col) {
+            col.style.height = max_height.toString(10)+'px';
+        });
+    });
+}
+
+//match immediately, then whenever window is resized
+heightMatch();
+window.addEventListener('resize', heightMatch);
