@@ -88,9 +88,29 @@ textEntry.value = cookie.get('textEntry','');
 dateInput.value = cookie.get('dateInput','');
 textOutput.value = cookie.get('textOutput','');
 
+//get saved contents of checkboxes
+for (let categoryCode in topicsExtended) {
+    for (let topicCode in topicsExtended[categoryCode].topics) {
+        topicsExtended[categoryCode].topics[topicCode].checkbox.checked = 
+        cookie.get(topicCode+'@'+topicsExtended[categoryCode].topics[topicCode].name,'off') == 'on';
+    }
+}
+
 // Set contents to cookies by Interval
 setInterval(function () {
     cookie.set('textEntry', textEntry.value);
     cookie.set('dateInput', dateInput.value);
     cookie.set('textOutput', textOutput.value);
-}, 100)
+
+    //set cookies for checkboxes
+    for (let categoryCode in topicsExtended) {
+        for (let topicCode in topicsExtended[categoryCode].topics) {
+            if (topicsExtended[categoryCode].topics[topicCode].checkbox.checked) {
+                cookie.set(topicCode+'@'+topicsExtended[categoryCode].topics[topicCode].name,'on');
+            }
+            else {
+                cookie.set(topicCode+'@'+topicsExtended[categoryCode].topics[topicCode].name,'off');
+            }
+        }
+    }
+}, 250)
