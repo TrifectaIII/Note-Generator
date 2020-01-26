@@ -21,7 +21,7 @@ var topics = {
         "Trigonometry",
         "XY Coordinates",
     ],
-    "Lists-Arrays":[
+    "Lists / Arrays":[
         "Indexing",
         "Append",
         "Item Assignment by Index",
