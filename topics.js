@@ -61,7 +61,7 @@ var topics = {
         "Timing Functions",
         "forEach",
     ],
-    "Phaser-CE":[
+    "Phaser CE":[
         "Gravity",
         "Groups",
         "Collision",
