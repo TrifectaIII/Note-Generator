@@ -206,9 +206,9 @@ document.querySelector('.reset_button').addEventListener('click', function () {
     textEntry.value = '';
 
     // uncheck all boxes
-    for (let category in topicChecks) {
-        for (let topic in topicChecks[category]) {
-            topicChecks[category][topic].checked = false;
+    for (let categoryCode in topicsExtended) {
+        for (let topicCode in topicsExtended[categoryCode].topics) {
+            topicsExtended[categoryCode].topics[topicCode].checkbox.checked = false;
         }
     }
 })
