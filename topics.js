@@ -10,12 +10,13 @@ var topics = {
         "Booleans",
     ],
     "Logic":[
-        "if-else",
+        "if / else",
         "elif",
         "Nested ifs",
-        "and/or",
+        "and / or",
     ],
     "Math":[
+        "Comparisons",
         "Modulo Operation",
         "Floor / Ceiling",
         "Trigonometry",
@@ -41,7 +42,8 @@ var topics = {
     ],
     "HTML":[
         "HTML Tags",
-        "Creating Elements",
+        "Headers",
+        "Paragraphs",
         "Links",
         "Images",
         "Form Inputs",
@@ -59,7 +61,7 @@ var topics = {
         "DOM Referencing",
         "Event Listeners",
         "Timing Functions",
-        "forEach",
+        "forEach()",
     ],
     "Phaser CE":[
         "Gravity",
