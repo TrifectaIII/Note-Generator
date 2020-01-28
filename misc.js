@@ -19,14 +19,14 @@ copy_button.addEventListener('click', function () {
 today_button.addEventListener('click', function () {
 
     //create date object at current time
-    var date = new Date()
+    var date = new Date();
  
     // parse date to local in 'YYYY-MM-DD' format and place into input
-    dateInput.value = date.getFullYear().toString()
-    + '-' 
-    + (date.getMonth() + 1).toString().padStart(2, 0) 
-    + '-' 
-    + date.getDate().toString().padStart(2, 0);
+    var year = date.getFullYear().toString();
+    var month = (date.getMonth() + 1).toString().padStart(2, 0);
+    var day = date.getDate().toString().padStart(2, 0);
+
+    dateInput.value = `${year}-${month}-${day}`
 })
 
 
