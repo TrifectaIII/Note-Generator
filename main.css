@@ -51,6 +51,11 @@
     font-weight: normal;
 }
 
+.copied {
+    opacity:0%;
+    transition: opacity 0.1s;
+}
+
 /* spacer for non-full final row in desktop view*/
 @media (min-width: 550px) {
     .spacer::after {

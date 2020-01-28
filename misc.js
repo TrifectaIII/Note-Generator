@@ -1,16 +1,32 @@
 // MISC 
 ////////////////////////////////////////
 
+var copiedTimer;
+var copiedContents;
+
 // copy button copies note from textarea
 copy_button.addEventListener('click', function () {
     textOutput.select();
     document.execCommand("copy");
-    //after a bit, defocus the textarea
-    setTimeout(function () {
-        textOutput.selectionStart = 0;
-        textOutput.selectionEnd = 0;
-        textOutput.blur();
-    },100)
+    //defocus the textarea and remove selection
+    textOutput.selectionStart = 0;
+    textOutput.selectionEnd = 0;
+    textOutput.blur();
+
+    //display text letting the user know it was copied
+    copied.style.opacity = '100%';
+
+    //remember what text is copied
+    copiedContents = textOutput.value;
+
+    //hide text again when text of textarea changes
+    clearInterval(copiedTimer);
+    copiedTimer = setInterval(function () {
+        if (copiedContents != textOutput.value) {
+            copied.style.opacity = '0%';
+            clearInterval(copiedTimer);
+        }
+    }, 250);
 })
 
 
