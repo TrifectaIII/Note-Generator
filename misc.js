@@ -103,9 +103,13 @@ function heightMatch () {
     });
 }
 
-//match immediately, then whenever window is resized
+//match immediately twice, then whenever window is resized
 heightMatch();
+setTimeout(heightMatch, 250);
 window.addEventListener('resize', heightMatch);
+
+
+
 
 
 // Get saved contents of textEntry, dateInput, and textOutput from cookies

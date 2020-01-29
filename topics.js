@@ -39,6 +39,7 @@ var topics = {
         "Parameters / Arguments",
         "Definition",
         "Recursion",
+        "Lambda",
     ],
     "HTML":[
         "HTML Tags",
@@ -68,10 +69,18 @@ var topics = {
         "Groups",
         "Collision",
     ],
+    "Tkinter":[
+        "Creating a window",
+        "Buttons",
+        "Labels",
+        "Text Entry",
+    ],
     "Scratch":[
         "Movement",
         "Variables",
         "Ask/Answer",
+        "Color Collsion",
+        "Sprite Collision",
         "Gravity",
         "Messages",
         "Clones",

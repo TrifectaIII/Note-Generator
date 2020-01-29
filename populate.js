@@ -62,9 +62,9 @@ for (let categoryCode in topicsExtended) {
         category:topicsExtended[categoryCode].name,
         bullets:topicsExtended[categoryCode].topics,
         //if last column in its own row, put spacer to center it
-        offset4:topicCols == topicLength && topicLength%3 != 2,
+        offset4:topicCols == topicLength && topicLength%3 == 1,
         //if last 2 columns in their own row, pur spacer to center both
-        offset2:topicCols == topicLength-1 && topicLength%3 != 1,
+        offset2:topicCols == topicLength-1 && topicLength%3 == 2,
     }
 
     //parse object and add to html
