@@ -3,8 +3,6 @@
 var topics = {
     "Fundamentals":[
         "Variables",
-        "print()",
-        "input()",
         "Strings",
         "Integers",
         "Booleans",
@@ -41,6 +39,12 @@ var topics = {
         "Recursion",
         "Lambda",
     ],
+    "Python":[
+        "print()",
+        "input()",
+        "the random package",
+        "the time package",
+    ],
     "HTML":[
         "HTML Tags",
         "Headers",
@@ -59,10 +63,16 @@ var topics = {
         "Flexbox layouts",
     ],
     "Javascript":[
+        "console.log()",
+        "Math.random()",
         "DOM Referencing",
         "Event Listeners",
         "Timing Functions",
         "forEach()",
+    ],
+    "Node.js":[
+        "HTTP Servers",
+        "Socket.io",
     ],
     "Phaser CE":[
         "Gravity",
@@ -86,5 +96,6 @@ var topics = {
         "Clones",
         "Forever Loops",
         "Repeat Until X Loops",
+        "Wait Until X",
     ],
 }
