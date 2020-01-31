@@ -89,7 +89,7 @@ var topics = {
         "Movement",
         "Variables",
         "Ask/Answer",
-        "Color Collsion",
+        "Color Collision",
         "Sprite Collision",
         "Gravity",
         "Messages",
