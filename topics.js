@@ -34,16 +34,19 @@ var topics = {
         "Nested Loops",
     ],
     "Functions":[
+        "Calling Functions",
         "Parameters / Arguments",
         "Definition",
         "Recursion",
         "Lambda",
+        "Functional Inverses",
     ],
     "Python":[
         "print()",
         "input()",
         "the random package",
         "the time package",
+        "ord() / chr()",
     ],
     "HTML":[
         "HTML Tags",
