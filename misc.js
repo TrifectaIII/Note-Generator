@@ -27,7 +27,7 @@ copy_button.addEventListener('click', function () {
             clearInterval(copiedTimer);
         }
     }, 250);
-})
+});
 
 
 

@@ -91,7 +91,8 @@ topics_section.innerHTML = topics_HTML;
 //grab generated elements from HTML and place in extended object
 for (let categoryCode in topicsExtended) {
     //grab each column 
-    topicsExtended[categoryCode].column = document.querySelector(`.${categoryCode}`);
+    topicsExtended[categoryCode].column = document.querySelector(`.topic_col.${categoryCode}`);
+    topicsExtended[categoryCode].header = document.querySelector(`h5.${categoryCode}`);
     for (let topicCode in topicsExtended[categoryCode].topics) {
         //grab each checkbox
         topicsExtended[categoryCode].topics[topicCode].checkbox =

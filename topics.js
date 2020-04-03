@@ -3,9 +3,12 @@
 var topics = {
     "Fundamentals":[
         "Variables",
+        "Data Types",
         "Strings",
         "Integers",
+        "Floats",
         "Booleans",
+        "Variable Scope",
     ],
     "Logic":[
         "if / else",
@@ -19,6 +22,12 @@ var topics = {
         "Floor / Ceiling",
         "Trigonometry",
         "XY Coordinates",
+        "Order of Operations",
+    ],
+    "Loops":[
+        "For Loops",
+        "While Loops",
+        "Nested Loops",
     ],
     "Lists / Arrays":[
         "Indexing",
@@ -28,10 +37,11 @@ var topics = {
         "For Loops by Index",
         "For Loops by Element",
     ],
-    "Loops":[
-        "For Loops",
-        "While Loops",
-        "Nested Loops",
+    "Dictionaries":[
+        "Key/Value Pairs",
+        "Accessing Value by Key",
+        "For Loops Over Keys",
+        "Assigning Values to Keys",
     ],
     "Functions":[
         "Calling Functions",
@@ -41,6 +51,17 @@ var topics = {
         "Lambda",
         "Functional Inverses",
     ],
+    "Classes":[
+        "Class Definition",
+        "Attributes",
+        "Methods",
+        "Constructing Objects",
+    ],
+    "Data Structures":[
+        "Stack",
+        "Queue",
+        "Tree",
+    ],
     "Python":[
         "print()",
         "input()",
@@ -49,7 +70,7 @@ var topics = {
         "ord() / chr()",
     ],
     "HTML":[
-        "HTML Tags",
+        "Tags",
         "Headers",
         "Paragraphs",
         "Links",
@@ -66,12 +87,21 @@ var topics = {
         "Flexbox layouts",
     ],
     "Javascript":[
+        "Objects",
         "console.log()",
         "Math.random()",
         "DOM Referencing",
         "Event Listeners",
         "Timing Functions",
         "forEach()",
+        "Object Constructors",
+    ],
+    "C#":[
+        "manifest (declaratory) typing",
+        "public vs private",
+        "static",
+        "object-oriented",
+        "random number generation",
     ],
     "Node.js":[
         "HTTP Servers",
@@ -81,8 +111,21 @@ var topics = {
         "Gravity",
         "Groups",
         "Collision",
+        "Key Controls",
+        "Sprite Creation",
+        "Anchor/Scale Adjustment",
+        "Buttons",
     ],
-    "Tkinter":[
+    "Unity":[
+        "Interface Tools",
+        "Objects",
+        "Components",
+        "Materials",
+        "Scripting",
+        "Collisions",
+        "Rigidbody Physics",
+    ],
+    "TkInter (GUI)":[
         "Creating a window",
         "Buttons",
         "Labels",
@@ -100,5 +143,6 @@ var topics = {
         "Forever Loops",
         "Repeat Until X Loops",
         "Wait Until X",
+        "Pen Tools",
     ],
 }
