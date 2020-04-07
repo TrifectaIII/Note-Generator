@@ -131,6 +131,13 @@ var topics = {
         "Labels",
         "Text Entry",
     ],
+    "Git (Version Control)":[
+        "Repositories",
+        "Cloning",
+        "Commit",
+        "Push/Pull",
+        "Branches",
+    ],
     "Scratch":[
         "Movement",
         "Variables",
