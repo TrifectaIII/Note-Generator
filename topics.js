@@ -14,12 +14,14 @@ var topics = {
         "if / else",
         "elif",
         "Nested ifs",
+        "conditions",
         "and / or",
     ],
     "Math":[
         "Comparisons",
         "Modulo Operation",
         "Floor / Ceiling",
+        "Geometry",
         "Trigonometry",
         "XY Coordinates",
         "Order of Operations",
@@ -56,6 +58,7 @@ var topics = {
         "Attributes",
         "Methods",
         "Constructing Objects",
+        "Class Inheritance/Extension",
     ],
     "Data Structures":[
         "Stack",
@@ -67,7 +70,9 @@ var topics = {
         "input()",
         "the random package",
         "the time package",
+        "the math package",
         "ord() / chr()",
+        "try/except",
     ],
     "HTML":[
         "Tags",
@@ -76,7 +81,10 @@ var topics = {
         "Links",
         "Images",
         "Form Inputs",
-        "Element IDs",
+        "Buttons",
+        "IDs",
+        "Classes",
+        "Attributes",
     ],
     "CSS":[
         "Selection by Tag Name",
@@ -95,6 +103,7 @@ var topics = {
         "Timing Functions",
         "forEach()",
         "Object Constructors",
+        "try/catch",
     ],
     "C#":[
         "manifest (declaratory) typing",
@@ -106,6 +115,14 @@ var topics = {
     "Node.js":[
         "HTTP Servers",
         "Socket.io",
+    ],
+    "Pixelpad-Python":[
+        "Sprite-Object-Room Hierarchy",
+        "Movement",
+        "Creating Objects",
+        "Switching Rooms",
+        "Creating Timers",
+        "Collision",
     ],
     "Phaser CE":[
         "Gravity",
