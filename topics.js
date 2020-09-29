@@ -133,7 +133,7 @@ var topics = {
         "Anchor/Scale Adjustment",
         "Buttons",
     ],
-    "Unity":[
+    "Unity Engine":[
         "Interface Tools",
         "Objects",
         "Components",
@@ -141,6 +141,14 @@ var topics = {
         "Scripting",
         "Collisions",
         "Rigidbody Physics",
+    ],
+    "Godot Engine":[
+        "Nodes",
+        "Scenes",
+        "Scripting",
+        "Instancing",
+        "Collision",
+        "Physics",
     ],
     "TkInter (GUI)":[
         "Creating a window",
